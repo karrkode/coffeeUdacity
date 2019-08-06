@@ -115,11 +115,11 @@ contract SupplyChain is ConsumerRole, DistributorRole, FarmerRole, RetailerRole 
     require(items[_upc].itemState == State.Sold, "Item has not been sold.");
     _;
   }
-  
+
   modifier shipped(uint _upc) {
-    require(items[_upc].itemState == State.Harvested, "Item has not been shipped.");
+    require(items[_upc].itemState == State.Shipped, "Item has not been shipped.");
     _;
-  } 
+  }
 
   modifier received(uint _upc) {
     require(items[_upc].itemState == State.Received, "Item has not been received.");
