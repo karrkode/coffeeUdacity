@@ -1,3 +1,4 @@
+   ``` 
    Deploying 'SupplyChain'
    -----------------------
    > transaction hash:    0x455ece1b526b41ec87bef7c168dd4735f69f708dcd7e3836a12d83a7af8a1608
@@ -11,6 +12,7 @@
    > gas price:           10 gwei
    > value sent:          0 ETH
    > total cost:          0.03621345 ETH
+   ```
 
 
 ruffle v5.0.21 (core: 5.0.21)
