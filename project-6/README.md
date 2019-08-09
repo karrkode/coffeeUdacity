@@ -13,4 +13,12 @@
    > total cost:          0.03621345 ETH
 
 
-   
+ruffle v5.0.21 (core: 5.0.21)
+Solidity v0.5.0 (solc-js)
+Node v10.16.0
+Web3.js v1.0.0-beta.37
+
+![activity](./Activity.png)
+![sequence](./Sequence.png)
+![state](./State.png)
+![modeling](./Modeling.png)
