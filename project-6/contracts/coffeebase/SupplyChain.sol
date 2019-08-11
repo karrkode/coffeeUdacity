@@ -8,9 +8,6 @@ import "../coffeecore/Ownable.sol";
 // Define a contract 'Supplychain'
 contract SupplyChain is ConsumerRole, DistributorRole, FarmerRole, RetailerRole, Ownable {
 
-  // Define 'owner'
-  address owner;
-
   // Define a variable called 'upc' for Universal Product Code (UPC)
   uint  upc;
 
@@ -67,11 +64,6 @@ contract SupplyChain is ConsumerRole, DistributorRole, FarmerRole, RetailerRole,
   event Shipped(uint upc);
   event Received(uint upc);
   event Purchased(uint upc);
-
-  modifier onlyOwner() {
-    require(msg.sender == owner, "sender is not owner");
-    _;
-  }
   
   modifier verifyCaller (address _address) {
     require(msg.sender == _address, "the caller is not the sender");
@@ -131,16 +123,13 @@ contract SupplyChain is ConsumerRole, DistributorRole, FarmerRole, RetailerRole,
     require(items[_upc].itemState == State.Purchased, "Item has not been purchased");
     _;
   } constructor() public payable {
-    owner = msg.sender;
     sku = 1;
     upc = 1;
   }
 
-  function kill() public {
-    if (msg.sender == owner) {
-      address payable payableAddress = address(uint160(msg.sender));
-      selfdestruct(payableAddress);
-    }
+  function kill() onlyOwner public {
+    address payable payableAddress = address(uint160(msg.sender));
+    selfdestruct(payableAddress);
   }
 
   // Define a function 'harvestItem' that allows a farmer to mark an item 'Harvested'
